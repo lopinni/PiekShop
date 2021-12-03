@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PiekShop.styles.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -26,6 +27,24 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                     </ul>
+                    <button value="increase" class="increaseFont">
+                        <img src="~/img/increase-font.png" width="40" height="40">
+                    </button>
+                    <button value="decrease" class="decreaseFont">
+                        <img src="~/img/decrease-font.png" width="40" height="40">
+                    </button>
+                    <script type="text/javascript">
+                        $(document).ready(function()
+                        {
+                            $(".increaseFont,.decreaseFont").click(function()
+                            {
+                                var curFontSize = $("body").css("font-size");
+                                if($(this).val()=='increase')
+                                        $("body").css("font-size", parseInt(curFontSize)+1);
+                                else    $("body").css("font-size", parseInt(curFontSize)-1);
+                            });
+                        });
+                    </script>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
