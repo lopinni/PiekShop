@@ -27,6 +27,14 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                     </ul>
+                    <button value="gallery" class="galleryLink">
+                        <a asp-area="" asp-page="/Privacy">
+                            <img src="~/img/contrast.png" width="40" height="40">
+                        </a>
+                    </button>
+                    <button value="contrast" class="contrastToggle">
+                        <img src="~/img/contrast.png" width="40" height="40">
+                    </button>
                     <button value="increase" class="increaseFont">
                         <img src="~/img/increase-font.png" width="40" height="40">
                     </button>
@@ -34,14 +42,12 @@
                         <img src="~/img/decrease-font.png" width="40" height="40">
                     </button>
                     <script type="text/javascript">
-                        $(document).ready(function()
-                        {
-                            $(".increaseFont,.decreaseFont").click(function()
-                            {
+                        $(document).ready(function () {
+                            $(".increaseFont,.decreaseFont").click(function () {
                                 var curFontSize = $("body").css("font-size");
-                                if($(this).val()=='increase')
-                                        $("body").css("font-size", parseInt(curFontSize)+1);
-                                else    $("body").css("font-size", parseInt(curFontSize)-1);
+                                if ($(this).val() == 'increase')
+                                    $("body").css("font-size", parseInt(curFontSize) + 1);
+                                else $("body").css("font-size", parseInt(curFontSize) - 1);
                             });
                         });
                     </script>
