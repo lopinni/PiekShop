@@ -12,8 +12,8 @@ using PiekShop.Data;
 namespace PiekShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211204180556_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20211204190525_MigrationPS")]
+    partial class MigrationPS
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -238,8 +238,13 @@ namespace PiekShop.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Value")
-                        .HasColumnType("real");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
