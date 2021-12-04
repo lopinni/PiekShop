@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PiekShop.Models;
 
 namespace PiekShop.Data
 {
@@ -9,5 +10,6 @@ namespace PiekShop.Data
             : base(options)
         {
         }
+        public DbSet<PiekShop.Models.Bakery> Bakery { get; set; }
     }
 }
