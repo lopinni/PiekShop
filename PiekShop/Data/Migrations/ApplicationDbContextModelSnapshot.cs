@@ -231,7 +231,7 @@ namespace PiekShop.Data.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Baskets");
+                    b.ToTable("Baskets", (string)null);
                 });
 
             modelBuilder.Entity("PiekShop.Models.BasketProducts", b =>
@@ -249,7 +249,7 @@ namespace PiekShop.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("BasketProducts");
+                    b.ToTable("BasketProducts", (string)null);
                 });
 
             modelBuilder.Entity("PiekShop.Models.Product", b =>
@@ -274,7 +274,7 @@ namespace PiekShop.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

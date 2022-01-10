@@ -1,0 +1,66 @@
+@model Basket?
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                Aktualna wartość koszyka
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Html.DisplayFor(x=>x.User.UserName)</td>
+        <td>
+            @Html.DisplayFor(basket => basket.CalculateBasketCost)
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nazwa Produktu
+            </th>
+            <th>
+                Ilość
+            </th>
+            <th>
+                Cena
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @if (Model.BasketProducts != null)
+    {
+        @foreach (var item in Model?.BasketProducts!)
+        {
+            <tr>
+                <td>
+                    @item.Product.Name
+                </td>
+                <td>
+                    @item.Ammount
+                </td>
+                <td>
+                    {@item.Product.Price*@item.Ammount}
+                </td>
+                <td>
+                    @* <a asp-action="Edit" asp-route-id="@item.Id">Remove</a> | *@
+                </td>
+            </tr>
+        }   
+    }
+    </tbody>
+</table>

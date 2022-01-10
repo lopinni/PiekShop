@@ -12,9 +12,11 @@ public class Basket
     [ForeignKey("IdentityUser")]
     public string UserId { get; set; }
     public virtual IdentityUser User { get; set; }
-    public List<BasketProducts> BasketProducts { get; set; }
+    public virtual List<BasketProducts> BasketProducts { get; set; }
     public StateOfTransaction StateOfTransaction { get; set; } = StateOfTransaction.Started;
 
-    public decimal CalculateBasketCost => BasketProducts.Select(x=>x.Product.Price * x.Ammount).Sum();
+    public decimal CalculateBasketCost => BasketProducts != null && BasketProducts.Count != 0?
+        BasketProducts.Select(x=>x.Product.Price * x.Ammount).Sum() :
+        0;
     
 }
