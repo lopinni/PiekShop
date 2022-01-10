@@ -26,6 +26,9 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    @using (Html.BeginForm("Add", "Products"))
+    {
+        <input type="text" name="productId" value="@item.Id" style="display: none;"/>
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -37,11 +40,15 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | *@
+                <input type="number" name="amount" value="1"/>
+            </td>
+            <td>
+                <input type = "submit" value="Add"/>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 @* <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>

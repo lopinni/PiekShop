@@ -16,7 +16,7 @@ public class Basket
     public StateOfTransaction StateOfTransaction { get; set; } = StateOfTransaction.Started;
 
     public decimal CalculateBasketCost => BasketProducts != null && BasketProducts.Count != 0?
-        BasketProducts.Select(x=>x.Product.Price * x.Ammount).Sum() :
+        BasketProducts.Select(x=>x.Product.Price * x.Amount).Sum() :
         0;
     
 }

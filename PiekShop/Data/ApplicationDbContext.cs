@@ -14,6 +14,7 @@ public class ApplicationDbContext : IdentityDbContext
 
     public DbSet<Product> Products { get; set; }
     public DbSet<Basket> Baskets { get; set; }
+    public DbSet<BasketProducts> BasketProducts { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder builder)

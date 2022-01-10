@@ -30,7 +30,7 @@ namespace PiekShop.Controllers
         public async Task<IActionResult> Index()
         {
             var currentUserId = _userManager.GetUserId(HttpContext.User);
-            var applicationDbContext = _context.Baskets.Include(b => b.User);
+            var applicationDbContext = _context.Baskets.Include(b => b.User).Include(x=>x.BasketProducts).ThenInclude(x=>x.Product);
             var activeBasket = await applicationDbContext.SingleOrDefaultAsync(x =>
                 x.StateOfTransaction == StateOfTransaction.Started && x.UserId == currentUserId);
             if (activeBasket == null)
